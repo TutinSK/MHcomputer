@@ -1,0 +1,19 @@
+RewriteEngine On
+
+#viet rewrite
+#.* -> đại diện cho giá trị động
+#[0-9]{1,} : chỉ các kí thự số, xuất hiện ít nhất 1 lần
+#Cú pháp : RewriteRule <link-giả> <link-mvc-thật>
+#trong link-giả có bao nhiêu chuổi regex thì tương ứng trong link thật sẽ sử dụng kí tự $<vị trí regex của link giả để đón giá trị tương ứng>
+RewriteRule chi-tiet-san-pham/(.*)/([0-9]{1,})/([0-9]{1,}) index.php?controller=product&action=detail&slug=$1&id=$2&idhang=$3
+#rule cho danh sách sản phẩm
+RewriteRule dang-nhap index.php?controller=login&action=index
+RewriteRule gio-hang-cua-ban index.php?controller=card&action=index
+RewriteRule them-gio-hang/([0-9]{1,}) index.php?controller=card&action=add&id=$1
+RewriteRule xoa-san-pham/([0-9]{1,}) index.php?controller=card&action=delete&id=$1
+RewriteRule thanh-toan index.php?controller=payment&action=index
+RewriteRule thanh-toan-truc-tuyen index.php?controller=payment&action=online
+RewriteRule cam-on index.php?controller=payment&action=thanks
+RewriteRule chi-tiet-ram/(.*)/([0-9]{1,}) index.php?controller=ram&action=detail&slug=$1&id=$2
+RewriteRule lien-he index.php?controller=contact&action=index
+RewriteRule thong-tin index.php?controller=contact&action=about
